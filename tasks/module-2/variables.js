@@ -23,7 +23,7 @@ const str2 = str + ' ' + lastName;
 /**
  * create variable named bool and set value of equality comparison of int and int2 variables
  */
-const bool = false;
+const bool = int === int2;
 /**
  * create variable named arr and set value array of numbers from 1 to 5
  */
