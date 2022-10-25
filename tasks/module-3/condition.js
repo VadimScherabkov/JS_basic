@@ -21,9 +21,7 @@ function taskA(x, y) {
 function taskB(x, y) {
   let z2;
   //PLACE YOUR CODE BETWEEN THIS LINE:
-  z2 = y < 10 ? z2 = x + y
-  : y >= 10 ? z2 = x * y
-  : console.log('error');
+  z2 = y < 10 ? x + y : x * y;
   //AND THIS ONE:
   return z2;
 }
@@ -77,13 +75,17 @@ function calculateDiscount(ransom) {
   let discount;
   //PLACE YOUR CODE BETWEEN THIS LINE:
   if (ransom >= 0 && ransom <= 350) {
-    console.log((discount = 0));
+    discount = 0;
+    console.log(discount);
   } else if (ransom <= 1350) {
-    console.log((discount = 15));
+    discount = 15;
+    console.log(discount);
   } else if (ransom <= 2700) {
-    console.log((discount = 30));
+    discount = 30;
+    console.log(discount);
   } else if (ransom <= 6500) {
-    console.log((discount = 45));
+    discount = 45;
+    console.log(discount);
   }
   //AND THIS ONE:
   return discount;
