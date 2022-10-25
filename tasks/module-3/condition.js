@@ -21,9 +21,9 @@ function taskA(x, y) {
 function taskB(x, y) {
   let z2;
   //PLACE YOUR CODE BETWEEN THIS LINE:
-    y < 10 ? z2 = x + y
-    : y >= 10 ? z2 = x * y
-    : console.log('error');
+  z2 = y < 10 ? z2 = x + y
+  : y >= 10 ? z2 = x * y
+  : console.log('error');
   //AND THIS ONE:
   return z2;
 }
@@ -40,19 +40,19 @@ function calc(operator, alpha, beta) {
   let task2;
   //PLACE YOUR CODE BETWEEN THIS LINE:
   switch (operator) {
-    case "add":
+    case 'add':
       task2 = alpha + beta;
       console.log(task2);
       break;
-    case "subtract":
+    case 'subtract':
       task2 = alpha - beta;
       console.log(task2);
       break;
-    case "multiply":
+    case 'multiply':
       task2 = alpha * beta;
       console.log(task2);
       break;
-    case "divide":
+    case 'divide':
       task2 = alpha / beta;
       console.log(task2);
       break;
@@ -77,13 +77,13 @@ function calculateDiscount(ransom) {
   let discount;
   //PLACE YOUR CODE BETWEEN THIS LINE:
   if (ransom >= 0 && ransom <= 350) {
-    console.log(discount = 0);
-  } else if (ransom >= 351 && ransom <= 1350) {
-    console.log(discount = 15);
-  } else if (ransom >= 1351 && ransom <= 2700) {
-    console.log(discount = 30);
-  } else if (ransom >= 2701 && ransom <= 6500) {
-    console.log(discount = 45);
+    console.log((discount = 0));
+  } else if (ransom <= 1350) {
+    console.log((discount = 15));
+  } else if (ransom <= 2700) {
+    console.log((discount = 30));
+  } else if (ransom <= 6500) {
+    console.log((discount = 45));
   }
   //AND THIS ONE:
   return discount;

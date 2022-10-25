@@ -5,18 +5,20 @@
  * while -> whileFactorial: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
  * do..while -> doFactorial: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while
  */
-let forFactorial = 1, whileFactorial = 1, doFactorial = 1;
+let forFactorial = 1,
+  whileFactorial = 1,
+  doFactorial = 1;
 const n = 10; // 10! = 3628800
 for (let i = 1; i <= n; i++) {
   forFactorial *= i;
-};
+}
 console.log(forFactorial);
 
 let i = 1;
 while (i <= n) {
   whileFactorial *= i;
   i++;
-};
+}
 console.log(whileFactorial);
 
 i = 1;
@@ -31,18 +33,18 @@ console.log(doFactorial);
  * assign the result to variable 'str'
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
  */
-let str = ''; //Мне кажется это плохой вариант для использования пустой строки.
+let str = '';
 const substr = ['I', ' love', ' JS'];
 for (let i of substr) {
   str += i;
-};
+}
 
 /** Task: 3
  * calculate a total of income of certain person
  * assign the result to the variable 'totalIncome'
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
  */
-let totalIncome;
+let totalIncome = 0;
 const personIncomes = {
   salary: 1985,
   rent: -600,
@@ -51,8 +53,8 @@ const personIncomes = {
 };
 
 for (let i in personIncomes) {
-  totalIncome = personIncomes.salary + personIncomes.rent + personIncomes.interestOnDeposit + personIncomes.otherExpences;
-};
+  totalIncome += personIncomes[i];
+}
 console.log(totalIncome);
 
 module.exports = {
