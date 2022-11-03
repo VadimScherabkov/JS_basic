@@ -24,7 +24,7 @@ function sum(a, b) {
  * }
  */
 
-var person = {
+let person = {
   firstName: 'John',
   lastName: 'Dou',
 };
@@ -40,11 +40,7 @@ getFullName(person);
  */
 
 function isOdd(n) {
-  if (n % 2 == 0) {
-    return false;
-  } else {
-    return true;
-  }
+  return n % 2 !== 0;
 }
 
 /**
@@ -53,7 +49,6 @@ function isOdd(n) {
  * console.log(getShortest(["one", "two", "three"])) // one
  */
 
-//Я подсмотрел это решение в интернете
 function getShortest(wordArray) {
   return wordArray.sort((a, b) => a.length - b.length)[0];
 }
@@ -120,9 +115,9 @@ function getTotalPath(path) {
  */
 
 function discountFunction(percentage) {
-  return function(amount) {
+  return function (amount) {
     return amount - (percentage * amount) / 100;
-  }
+  };
 }
 
 /**
@@ -139,20 +134,11 @@ const myObject = {
   friends: ['Mike', 'Alan', 'Daniel'],
   keys() {
     //write your code here
-    for (let i in myObject) console.log(i);
+    for (let i in this) console.log(i);
   },
   call() {
     //write your code here
-    return (
-      'My name is ' +
-      myObject.name +
-      ' ' +
-      myObject.lastName +
-      ' and I am ' +
-      myObject.age +
-      ' years old. My best friend is ' +
-      myObject.friends[2]
-    );
+    return 'My name is ' + this.name + ' ' + this.lastName + ' and I am ' + this.age + ' years old. My best friend is ' + this.friends[2];
   },
 };
 
