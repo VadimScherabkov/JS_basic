@@ -5,11 +5,16 @@
  * Arrow functions: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
  */
 
+const { arrayBuffer } = require('stream/consumers');
+
 /**
  * write function that will do sum for two numbers
  *
  */
-function sum(a, b) {}
+
+function sum(a, b) {
+  return a + b;
+}
 
 /**
  * write function that returns firstName and lastName of a given object
@@ -18,27 +23,49 @@ function sum(a, b) {}
  *    lastName: "Dou"
  * }
  */
-function getFullName(object) {}
+
+let person = {
+  firstName: 'John',
+  lastName: 'Dou',
+};
+
+function getFullName(obj) {
+  return obj.firstName + ' ' + obj.lastName;
+}
+getFullName(person);
 
 /**
  * write function that checks if number is odd
  * true if odd, false if even
  */
-function isOdd(n) {}
+
+function isOdd(n) {
+  return n % 2 !== 0;
+}
 
 /**
  * write function that returns shortest of the words in the given array
  * @example
  * console.log(getShortest(["one", "two", "three"])) // one
  */
-function getShortest(wordArray) {}
+
+function getShortest(wordArray) {
+  return wordArray.sort((a, b) => a.length - b.length)[0];
+}
 
 /**
  * write function that returns word google with given numbers of "o" symbols
  * @example
  * console.log(getGoogle(5)) // gooooogle
  */
-function getGoogle(n) {}
+
+function getGoogle(n) {
+  let a = '';
+  for (let i = 0; i < n; i++) {
+    a += 'o';
+  }
+  return 'g' + a + 'gle';
+}
 
 /**
  * write function that returns object based on the given information
@@ -51,7 +78,15 @@ function getGoogle(n) {}
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {}
+
+function getUser(firstName = null, lastName = null, age = null) {
+  const user = {
+    firstName: firstName,
+    lastName: lastName,
+    age: age,
+  };
+  return user;
+}
 
 /**
  * write function that calculates total path traveled.
@@ -59,7 +94,13 @@ function getUser(firstName, lastName, age) {}
  * e.g [{direction: "Kiyv - Minsk", distance: 567}, {direction: "Kiyv - Paris", distance: 2402}]
  */
 
-function getTotalPath(path) {}
+function getTotalPath(path) {
+  let sum = 0;
+  for (let i = 0; i < path.length; i += 1) {
+    sum += path[i].distance;
+  }
+  return sum;
+}
 
 /**
  * write a function that calculates a final price considering the Amount
@@ -74,7 +115,9 @@ function getTotalPath(path) {}
  */
 
 function discountFunction(percentage) {
-  return function (amount) {};
+  return function (amount) {
+    return amount - (percentage * amount) / 100;
+  };
 }
 
 /**
@@ -91,9 +134,11 @@ const myObject = {
   friends: ['Mike', 'Alan', 'Daniel'],
   keys() {
     //write your code here
+    for (let i in this) console.log(i);
   },
   call() {
     //write your code here
+    return 'My name is ' + this.name + ' ' + this.lastName + ' and I am ' + this.age + ' years old. My best friend is ' + this.friends[2];
   },
 };
 
