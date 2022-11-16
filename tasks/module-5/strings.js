@@ -8,7 +8,10 @@
  * console.log(reverseString('hello)) // 'olleh'
  * console.log(reverseString(123)) // 'This is not a string!'
  */
-function reverseString(str) {}
+function reverseString(str) {
+  if (typeof str === 'string') return str.split('').reverse().join('');
+  else return (error = 'This is not a string!');
+}
 
 /**
  * Calculate a century by given year if a number is passed
@@ -20,7 +23,9 @@ function reverseString(str) {}
  * console.log(centuryFromYear(1601)) // 17
  * hint: please choose and appropriate method from the Math object
  */
-function centuryFromYear(year) {}
+function centuryFromYear(year) {
+  return Math.ceil(year / 100);
+}
 
 /**
  * Calculate how many times the 'char' appears in the provided 'string'
@@ -33,7 +38,15 @@ function centuryFromYear(year) {}
  * console.log(strCount('', 'z')) // 0
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
  */
-function strCount(str, char) {}
+function strCount(str, char) {
+  const re = RegExp(char, 'gi');
+  let val = str.match(re);
+  if (val) {
+    return val.length;
+  } else {
+    return 0;
+  }
+}
 
 /**
  * Write a method to reduce the length of the string or truncate if it is longer
@@ -46,7 +59,13 @@ function strCount(str, char) {}
  * console.log(truncateString('This is a long string', 6)) // 'This i...'
  * console.log(truncateString('This', 6)) // 'This'
  */
-function truncateString(str, num) {}
+function truncateString(str, num) {
+  if (str.length <= num) {
+    return str;
+  } else {
+    return str.slice(0, num) + '...';
+  }
+}
 
 /**
  * replace 10 with 'ten' word
@@ -56,7 +75,9 @@ function truncateString(str, num) {}
  * console.log(replace10("231054")) // 23ten54
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
  */
-function replace10(text) {}
+function replace10(text) {
+  return text.replaceAll(10, 'ten');
+}
 
 /**
  * replace value in the square brackets with CONFIDENTIAL
@@ -65,7 +86,9 @@ function replace10(text) {}
  * @example
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
-function replaceConfidential(text) {}
+function replaceConfidential(text) {
+  return text.replace(/\[.*?\]/g, '[CONFIDENTIAL]');
+}
 
 module.exports = {
   reverseString,
