@@ -10,7 +10,7 @@
  */
 function reverseString(str) {
   if (typeof str === 'string') return str.split('').reverse().join('');
-  else return (error = 'This is not a string!');
+  else return 'This is not a string!';
 }
 
 /**
@@ -24,7 +24,11 @@ function reverseString(str) {
  * hint: please choose and appropriate method from the Math object
  */
 function centuryFromYear(year) {
-  return Math.ceil(year / 100);
+  if (typeof year === 'number') {
+    return Math.ceil(year / 100);
+  } else {
+    return 'Please, provide a year.';
+  }
 }
 
 /**
