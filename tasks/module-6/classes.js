@@ -10,14 +10,13 @@
  */
 //put your code here
 class Person {
-  firstName = null;
-  lastName = null;
   getFullName() {
     return `${this.firstName} ${this.lastName}`;
   }
-  constructor(firstName, lastName) {
+  constructor(firstName, lastName, grade) {
     this.firstName = firstName;
     this.lastName = lastName;
+    this.grade = grade;
   }
 }
 /**
@@ -28,7 +27,6 @@ class Person {
  */
 //put your code here
 class Student extends Person {
-  grade = null;
   constructor(grade) {
     super(grade);
   }
