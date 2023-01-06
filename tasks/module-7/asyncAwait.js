@@ -18,7 +18,7 @@ const { getDogs, getCats, getBirds } = require('./utils/utilPromises');
  */
 async function asyncPromiseResolve() {
   //PLACE YOUR CODE HERE:
-  return await Promise.resolve('Resolved! with async await');
+  return (await promiseResolve()) + ' with async await';
 }
 
 /**
@@ -29,11 +29,9 @@ async function asyncPromiseResolve() {
  */
 async function asyncPromiseReject() {
   //PLACE YOUR CODE HERE:
-  try {
-    return await asyncPromiseReject();
-  } catch (err) {
-    return 'Rejected! with async await';
-  }
+  return await promiseReject().catch(err => {
+    return err + ' with async await';
+  });
 }
 
 /**

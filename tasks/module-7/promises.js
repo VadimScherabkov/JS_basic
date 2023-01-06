@@ -25,7 +25,7 @@ function promiseResolve() {
 
 function promiseReject() {
   //PLACE YOUR CODE HERE:
-  const promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     return reject('Rejected!');
   });
 }
@@ -40,7 +40,7 @@ function promiseReject() {
 function fullPromise(param) {
   //PLACE YOUR CODE HERE:
   const promise = new Promise((resolve, reject) => {
-    if (param === false) {
+    if (param) {
       reject('Rejected!');
     } else {
       resolve('Resolved!');
