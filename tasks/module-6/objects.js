@@ -23,7 +23,6 @@ const student = {
 };
 Object.setPrototypeOf(student, person);
 
-
 /**
  * create new instance of student using Object.create
  */
