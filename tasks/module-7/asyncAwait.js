@@ -1,3 +1,5 @@
+const { readFileSync } = require('fs');
+const { waitForDebugger } = require('inspector');
 const { promiseResolve, promiseReject } = require('./promises');
 const { getDogs, getCats, getBirds } = require('./utils/utilPromises');
 /**
@@ -16,6 +18,7 @@ const { getDogs, getCats, getBirds } = require('./utils/utilPromises');
  */
 async function asyncPromiseResolve() {
   //PLACE YOUR CODE HERE:
+  return (await promiseResolve()) + ' with async await';
 }
 
 /**
@@ -26,6 +29,9 @@ async function asyncPromiseResolve() {
  */
 async function asyncPromiseReject() {
   //PLACE YOUR CODE HERE:
+  return await promiseReject().catch(err => {
+    return err + ' with async await';
+  });
 }
 
 /**
@@ -37,6 +43,7 @@ async function asyncPromiseReject() {
  */
 async function asyncPromiseAll() {
   //PLACE YOUR CODE HERE:
+  return [await getDogs(), await getCats(), await getBirds()];
 }
 
 module.exports = {

@@ -1,3 +1,6 @@
+const { rejects } = require('assert');
+const { readFile } = require('fs');
+const { resolve } = require('path');
 const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('./utils/utilPromises');
 
 /**
@@ -9,6 +12,8 @@ const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('./u
 
 function promiseResolve() {
   //PLACE YOUR CODE HERE:
+  const promise = Promise.resolve('Resolved!');
+  return promise;
 }
 
 /**
@@ -20,6 +25,9 @@ function promiseResolve() {
 
 function promiseReject() {
   //PLACE YOUR CODE HERE:
+  return new Promise((resolve, reject) => {
+    return reject('Rejected!');
+  });
 }
 
 /**
@@ -31,6 +39,14 @@ function promiseReject() {
 
 function fullPromise(param) {
   //PLACE YOUR CODE HERE:
+  const promise = new Promise((resolve, reject) => {
+    if (param) {
+      reject('Rejected!');
+    } else {
+      resolve('Resolved!');
+    }
+  });
+  return promise;
 }
 
 /**
@@ -43,7 +59,14 @@ function promisesChaining() {
   let chainingResult = '';
 
   //PLACE YOUR CODE BETWEEN THIS LINE:
-
+  return firstPromise().then(data => {
+    chainingResult += data;
+    return secondPromise().then(data => {
+      chainingResult += ' ';
+      chainingResult += data;
+      return chainingResult;
+    });
+  });
   //AND THIS ONE
 }
 
@@ -58,6 +81,7 @@ function promisesChaining() {
 
 function getAnimals() {
   //PLACE YOUR CODE BETWEEN THIS LINE:
+  return Promise.all([getDogs(), getCats(), getBirds()]);
   //AND THIS ONE
 }
 
