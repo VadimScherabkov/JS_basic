@@ -25,6 +25,22 @@ const fs = require('fs/promises');
 
 const jsonParser = async () => {
   //put your code here
+  const jsonFile = require('./utils/test.json');
+  const path = './tasks/module-8/parsed.json';
+
+  const arr = jsonFile.list.entries;
+  const url = 'http://doc.epam.com/';
+
+  const newArr = arr.map(obj => {
+    return { docId: url + obj.entry.name.slice(0, -5) };
+  });
+
+  await fs.writeFile(path, JSON.stringify(newArr, null, 2), err => {
+    if (err) {
+      console.log('Failed to write updated data to file');
+      return;
+    }
+  });
 };
 
 module.exports = {
