@@ -22,6 +22,22 @@ const fs = require('fs/promises');
  */
 const sendRequest = async () => {
   //put your code here
+  const path = './tasks/module-8/response.json';
+
+  const result = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'GET',
+    headers: {},
+  });
+
+  const json = await result.json();
+  const fixedJson = json.filter(element => element.id < 20);
+
+  fs.writeFile(path, JSON.stringify(fixedJson, null, 2), err => {
+    if (err) {
+      console.log('Failed to write updated data to file');
+      return;
+    }
+  });
 };
 
 module.exports = {
