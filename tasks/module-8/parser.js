@@ -35,7 +35,7 @@ const jsonParser = async () => {
     return { docId: url + obj.entry.name.slice(0, -5) };
   });
 
-   await fs.writeFile(path, JSON.stringify(newArr, null, 2), err => {
+  await fs.writeFile(path, JSON.stringify(newArr, null, 2), err => {
     if (err) {
       console.log('Failed to write updated data to file');
       return;
